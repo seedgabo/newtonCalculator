@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Calculador de Eventos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-slides>
+    <!-- Event Slide -->
+    <ion-slide>
+      <ion-card padding>
+        <ion-card-header ion-text color="primary">Evento</ion-card-header>
+        <ion-list>
+          <ion-item>
+            <ion-label floating>
+              <ion-icon name="card" item-left></ion-icon>
+              Nombre
+            </ion-label>
+            <ion-input [(ngModel)]="event.name"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label floating>
+                <ion-icon name="calendar" item-left></ion-icon>
+                Fecha
+            </ion-label>
+            <ion-datetime (ionChange)="changeEnd()" displayFormat="DD MMM YYYY hh mm A" pickerFormat="DD MMM YYY hh mm A" [(ngModel)]="event.start"></ion-datetime>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label floating>
+                <ion-icon name="calendar" item-left></ion-icon>
+                Fin
+            </ion-label>
+            <ion-datetime displayFormat="DD MMM YYYY hh mm A" pickerFormat="DD MMM YYY hh mm A" [(ngModel)]="event.end"></ion-datetime>
+          </ion-item>
+        </ion-list>
+      </ion-card>
+    </ion-slide>
+
+
+    <!-- Products Slide -->
+    <ion-slide>
+        <ion-grid no-padding>
+          <ion-row wrap>
+             <ion-col col-xs-12 col-sm-12 col-md-6 col-lg-4 *ngFor="let product of products">
+              <ion-card padding>
+                <img src="https://article.images.consumerreports.org/prod/content/dam/cro/news_articles/appliances/CalphalonXL_Blender_Fullsize" style="margin:0 auto; width: 60%; max-height: 300px;">
+                <ion-card-header>
+                  <h3 ion-text color="primary">{{product.name}}</h3>
+                  <p> {{ product.description }} </p>
+                </ion-card-header>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <button ion-button  icon-only  clear round (click)="product.quantity=product.quantity-1">
+                        <ion-icon name="remove-circle"></ion-icon>
+                      </button>
+                    </ion-col>
+                    <ion-col>
+                      <ion-input text-center [(ngModel)]="product.quantity" min="0" type="number"></ion-input>
+                    </ion-col>
+                    <ion-col>
+                      <button ion-button  icon-only clear round (click)="product.quantity=product.quantity+1">
+                        <ion-icon name="add-circle"></ion-icon>
+                      </button>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+    </ion-slide>
+  
+  </ion-slides>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col text-left>
+          <button ion-button clear icon-left [disabled]="index == 0" (click)="previous()">
+            <ion-icon name="arrow-dropleft"></ion-icon>
+            Anterior
+          </button>
+        </ion-col>
+        <ion-col text-right>
+          <button ion-button clear icon-right [disabled]="index == 4" (click)="next()">
+            Siguiente
+            <ion-icon name="arrow-dropright"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
