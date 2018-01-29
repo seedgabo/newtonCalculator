@@ -1,5 +1,33 @@
 page-calculator {
-    ion-slide{
-        align-items: initial !important;
+  ion-slide {
+    align-items: initial !important;
+    overflow: scroll;
+  }
+  .number-input {
+    border: 0;
+    text-align: center;
+    max-width: 70px;
+  }
+  .input-text {
+    input {
+      text-align: right;
     }
+  }
+}
+
+*::-webkit-scrollbar-track {
+  box-shadow: SOLID 0 0 1px rgba(0, 0, 0, 0.3);
+  border-radius: 1px;
+  background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar {
+  width: 3px;
+  background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: SOLID 0 0 1px rgba(0, 0, 0, .3);
+  background-color: #CCC;
 }
