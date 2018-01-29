@@ -1,15 +1,17 @@
 {
-  "name": "Calculator",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "newton-calculator",
+  "version": "1.0.0",
+  "author": "Newton dEvelopers",
+  "homepage": "http://newton.eycproveedores.com",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "release-android": "ionic cordova run android --prod",
+    "release-web": "ionic cordova run browser --prod"
   },
   "dependencies": {
     "@angular/common": "5.0.3",
